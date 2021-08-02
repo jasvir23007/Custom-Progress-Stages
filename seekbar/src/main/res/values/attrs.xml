@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SemiCircleArcProgressBar">
+        <attr name="progressPlaceHolderColor" format="color"/>
+        <attr name="progressBarColor" format="color"/>
+        <attr name="progressPlaceHolderWidth" format="dimension"/>
+        <attr name="progressBarWidth" format="dimension"/>
+        <attr name="percent" format="integer"/>
+    </declare-styleable>
+
+
+</resources>
