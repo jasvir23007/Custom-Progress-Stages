@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-    implementation project(':seekbar')
+    implementation 'com.github.jasvir23007:Custom-Progress-Stages:1.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'

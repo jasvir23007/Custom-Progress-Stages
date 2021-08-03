@@ -142,8 +142,8 @@ class SemiCircleArcProgressBar : View {
         canvas.drawText(text!!, bounds.centerX(), bounds.centerY() + textOffset, textPaint)
     }
 
-    fun setData(loyalityData: ArrayList<Int>) {
-        this.values = loyalityData
+    fun setData(values: ArrayList<Int>) {
+        this.values = values
         invalidate()
     }
 
