@@ -70,5 +70,5 @@ progressBar.setProgressPlaceHolderWidth(10);
 ```
 
 
-![1.jpg](https://user-images.githubusercontent.com/53420188/127960477-c3caea4d-7559-4d67-9047-82092b938419.jpg"Demo Screen Shot")
+
 
