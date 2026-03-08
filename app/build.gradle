@@ -1,15 +1,16 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android' // Modernized Kotlin plugin ID
 }
 
 android {
-    compileSdkVersion 30
+    namespace "com.example.circularbar" // Required for modern AGP
+    compileSdk 36 // Updated from compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.example.circularbar"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdk 24 // Bumped from 21 for better modern compatibility, but 21 works too
+        targetSdk 36 // Updated from targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -23,23 +24,25 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17 // Required for AGP 8+
+        targetCompatibility JavaVersion.VERSION_17 // Required for AGP 8+
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17' // Required for AGP 8+
     }
 }
 
 dependencies {
-    implementation 'com.github.jasvir23007:Custom-Progress-Stages:1.0'
+    // CRITICAL FIX: This links your sample app to your local library module!
+    implementation project(':seekbar')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Modernized dependency versions
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
