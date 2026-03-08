@@ -27,7 +27,7 @@ And then add this dependency to your Project build.gradle
 
 ```bash
 dependencies {
-    implementation 'com.github.jasvir23007:Custom-Progress-Stages:1.1'
+    implementation 'com.github.jasvir23007:Custom-Progress-Stages:2.0.0'
 }
 ```
 
