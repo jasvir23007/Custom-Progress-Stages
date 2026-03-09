@@ -71,33 +71,56 @@ progressBar.setProgressPlaceHolderWidth(10);
 
 ```kotlin
 // Jetpack Compose
-@Composable
-fun CustomProgressBarScreen() {
-    // Define your stages
-    val stages = remember { arrayListOf(0, 50, 100, 150) }
-    var currentProgress by remember { mutableStateOf(125f) }
 
-    AndroidView(
-        factory = { context ->
-            // Initialize the view
-            CustomProgressSeekBar(context).apply {
-                setData(stages)
-                setProgressBarColor(0xffff00ff.toInt())
-                setProgressPlaceHolderColor(0xff00ffff.toInt())
-                setProgressBarWidth(10)
-                setProgressPlaceHolderWidth(10)
-            }
-        },
-        update = { view ->
-            // Update progress when state changes
-            view.setPercentWithAnimation(currentProgress)
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp) // Maintain 2:2 ratio for circular look as recommended
-            .padding(16.dp)
-    )
+ // Step 1
+   setContent {
+            CircularProgressScreen()
+        }
+
+  // Step 2
+    @Composable
+    fun CircularProgressScreen() {
+        // Material 3 Inspired Palette
+        val PrimaryColor = Color(0xFFFBEAEB)
+        val TrackColor = Color(0xFF2F3C7E)
+        val stages = remember { arrayListOf(0,50,100,150) }
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            AndroidView(
+                modifier = Modifier
+                    .size(300.dp) // Maintain aspect ratio
+                    .padding(16.dp),
+                factory = { context ->
+                    // 1. Initialize the view
+                    SemiCircleArcProgressBar(context).apply {
+                        setData(stages)
+                        setProgressBarColor(PrimaryColor.toArgb())
+                        setProgressPlaceHolderColor(TrackColor.toArgb())
+                        setProgressBarWidth(10.dpToPx())
+                        setProgressPlaceHolderWidth(14.dpToPx())
+                    }
+                },
+                update = { view ->
+                    // 2. Perform updates here (this runs on recomposition)
+                    view.setPercentWithAnimation(125)
+                }
+            )
+        }
+    }
+
+// Step 3
+fun Int.dpToPx(): Int {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics
+    ).toInt()
 }
+
 ```
 
 
