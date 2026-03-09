@@ -27,7 +27,7 @@ And then add this dependency to your Project build.gradle
 
 ```bash
 dependencies {
-    implementation 'com.github.jasvir23007:Custom-Progress-Stages:1.1'
+    implementation 'com.github.jasvir23007:Custom-Progress-Stages:2.0.0'
 }
 ```
 
@@ -69,6 +69,35 @@ progressBar.setProgressPlaceHolderWidth(10);
         app:progressPlaceHolderWidth="10" />
 ```
 
+```kotlin
+// Jetpack Compose
+@Composable
+fun CustomProgressBarScreen() {
+    // Define your stages
+    val stages = remember { arrayListOf(0, 50, 100, 150) }
+    var currentProgress by remember { mutableStateOf(125f) }
 
+    AndroidView(
+        factory = { context ->
+            // Initialize the view
+            CustomProgressSeekBar(context).apply {
+                setData(stages)
+                setProgressBarColor(0xffff00ff.toInt())
+                setProgressPlaceHolderColor(0xff00ffff.toInt())
+                setProgressBarWidth(10)
+                setProgressPlaceHolderWidth(10)
+            }
+        },
+        update = { view ->
+            // Update progress when state changes
+            view.setPercentWithAnimation(currentProgress)
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp) // Maintain 2:2 ratio for circular look as recommended
+            .padding(16.dp)
+    )
+}
+```
 
 
