@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         // Material 3 Inspired Palette
         val PrimaryColor = Color(0xFFFBEAEB)
         val TrackColor = Color(0xFF2F3C7E)
-        val stages = remember { arrayListOf(0, 150) }
+        val stages = remember { arrayListOf(0,50,100,150) }
 
         Column(
             modifier = Modifier.fillMaxSize(),
