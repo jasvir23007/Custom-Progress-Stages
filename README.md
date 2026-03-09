@@ -3,7 +3,6 @@
 [![](https://user-images.githubusercontent.com/53420188/127960477-c3caea4d-7559-4d67-9047-82092b938419.jpg)](https://jitpack.io/#jasvir23007/Custom-Progress-Stages)
 
 ### Visual Preview
-
 | 2 Stages | 4 Stages |
 | :---: | :---: |
 | ![](https://github.com/user-attachments/assets/26791beb-1bcd-42c6-8399-e283ab5eb2b4) | ![](https://github.com/user-attachments/assets/852b749f-94f8-4fd8-ab7e-167b950120ec) |
