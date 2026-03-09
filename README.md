@@ -69,7 +69,7 @@ progressBar.setProgressPlaceHolderWidth(10);
         app:progressPlaceHolderWidth="10" />
 ```
 
-```compose
+```kotlin
 // Jetpack Compose
 @Composable
 fun CustomProgressBarScreen() {
